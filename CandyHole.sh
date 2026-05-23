@@ -132,13 +132,13 @@ uninstall_paqet() {
     echo ""
     echo -e "${YELLOW}Note: The following packages were installed by this script:${NC}"
     echo "  - curl, wget, git, nano, vim, htop, net-tools, unzip, zip"
-    echo "  - software-properties-common, libpcap-dev, iptables-persistent"
+    echo "  - libpcap-dev, iptables-persistent"
     echo ""
     read -p "Do you want to remove these packages as well? (y/n): " remove_packages
 
     if [[ $remove_packages =~ ^[Yy]$ ]]; then
         show_progress "Removing installed packages"
-        apt remove -y curl wget git nano vim htop net-tools unzip zip software-properties-common libpcap-dev iptables-persistent 2>/dev/null || true
+        apt remove -y curl wget git nano vim htop net-tools unzip zip libpcap-dev iptables-persistent 2>/dev/null || true
         apt autoremove -y 2>/dev/null || true
         print_success "Packages removed"
     else
@@ -265,7 +265,7 @@ elif [ "$client_or_server" == "s" ]; then
 fi
 # Install necessary packages
 show_progress "Installing required system packages"
-apt install -y curl wget git nano vim htop net-tools unzip zip software-properties-common libpcap-dev iptables-persistent
+apt install -y curl wget git nano vim htop net-tools unzip zip libpcap-dev iptables-persistent
 if [ $? -ne 0 ]; then
     print_error "Failed to install system packages"
     exit 1
