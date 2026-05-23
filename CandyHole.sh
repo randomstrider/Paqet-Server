@@ -275,13 +275,13 @@ print_success "System packages installed successfully"
 # Install Paqet
 echo ""
 show_progress "Downloading and installing Paqet"
-wget -q https://github.com/hanselime/paqet/releases/download/v1.0.0-alpha.13/paqet-linux-amd64-v1.0.0-alpha.13.tar.gz
+wget -q https://github.com/hanselime/paqet/releases/download/v1.0.0-alpha.19/paqet-linux-amd64-v1.0.0-alpha.19.tar.gz
 if [ $? -ne 0 ]; then
     print_error "Failed to download Paqet"
     exit 1
 fi
 
-tar -xzf paqet-linux-amd64-v1.0.0-alpha.13.tar.gz
+tar -xzf paqet-linux-amd64-v1.0.0-alpha.19.tar.gz
 if [ $? -ne 0 ]; then
     print_error "Failed to extract Paqet archive"
     exit 1
